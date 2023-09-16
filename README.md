@@ -1,34 +1,71 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Online eBook Builder
 
-## Getting Started
+Welcome to the Online eBook Builder - a Hackathon project designed to give users the power to create, edit, and publish their own eBooks seamlessly on the web. Built with Next.js and Supabase and adorned with the sleek Radix-theme UI, the eBook Builder stands as a testament to modern web capabilities and design.
 
-First, run the development server:
+## Features:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+1. **Intuitive eBook Creation**: Create a new eBook with just a few clicks and start adding content immediately.
+2. **GitHub Authentication**: Use your existing GitHub account to sign in, ensuring the security and convenience of OAuth.
+3. **Dynamic Editing**: Use our dynamic editor to add text, images, and other multimedia to your eBook.
+4. **Responsive Design**: Built on Radix-theme UI, experience a sleek and responsive design across all devices.
+5. **Database Capabilities with Supabase**: Store your eBook projects securely with the power of Supabase.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Quick Start:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the Repository**:
+   ```
+   git clone https://github.com/[your_github_username]/online-ebook-builder.git
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+2. **Navigate to the Project Directory**:
+   ```
+   cd online-ebook-builder
+   ```
 
-## Learn More
+3. **Install Dependencies**:
+   ```
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Set up Supabase & GitHub OAuth**:
+   - Create a Supabase project and set up the necessary tables.
+   - Set up GitHub OAuth for authentication.
+   - Save the environment variables in a `.env.local` file. 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   Sample:
+   ```
+   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+   GITHUB_CLIENT_ID=your_github_client_id
+   GITHUB_SECRET=your_github_secret
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+5. **Run the Development Server**:
+   ```
+   npm run dev
+   ```
 
-## Deploy on Vercel
+## Contributing:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+If you wish to contribute, please:
+1. Fork the repository.
+2. Create a new branch with a meaningful name.
+3. Commit and push your changes.
+4. Create a pull request detailing the changes and the reasons.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Credits:
+
+- **Next.js**: The React framework used for building the application.
+- **Supabase**: For the backend and database functionalities.
+- **Radix-theme**: For the beautiful and responsive UI.
+- **GitHub OAuth**: For secure and easy authentication.
+
+## License:
+This project is licensed under the MIT License.
+
+## Contact:
+For more information or if you run into issues, feel free to reach out at [your_email@example.com].
+
+---
+
+We hope you enjoy the Online eBook Builder as much as we enjoyed building it. Happy eBook creation! 📖🚀
