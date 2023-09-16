@@ -17,7 +17,8 @@ export const LoginBtn = ({ hidden }: { hidden?: boolean }) => {
                         }
                         break;
                     default:
-                        break;
+                        console.log('** event:', event)
+                        break
                 }
             }
         );
