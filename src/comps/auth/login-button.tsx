@@ -19,7 +19,7 @@ export const LoginBtn = ({ hidden }: { hidden?: boolean }) => {
                             console.log('** singed in', session.user)
                             const bookId = 'my-' + session.user.id
                             setBookId(bookId)
-                            router.push(`/book/${bookId}`)
+                            router.push(`/content`)
                         }
 
                         break;

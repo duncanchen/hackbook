@@ -7,9 +7,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Flex direction="column" gap="2">
         <Text className='text-xl'>Hello from Radix Themes :)</Text>
-        <Button>go go</Button>
         <LoginBtn />
-        <LogoutBtn />
       </Flex>
     </main>
   )
