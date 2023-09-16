@@ -3,9 +3,12 @@
 import { useEffect } from "react";
 import { supabase } from "@/supa/supabase-browser";
 import { Button } from "@radix-ui/themes";
+import { useRouter } from "next/navigation";
+import { useBookStore } from "@/store/use-book-store";
 
 export const LoginBtn = ({ hidden }: { hidden?: boolean }) => {
-
+    const router = useRouter()
+    const { setBookId } = useBookStore()
     useEffect(() => {
         // This function will be triggered whenever there's an authentication change
         const { data: authListener } = supabase.auth.onAuthStateChange(
@@ -14,7 +17,11 @@ export const LoginBtn = ({ hidden }: { hidden?: boolean }) => {
                     case 'SIGNED_IN':
                         if (session?.user) {
                             console.log('** singed in', session.user)
+                            const bookId = 'my-' + session.user.id
+                            setBookId(bookId)
+                            router.push(`/book/${bookId}`)
                         }
+
                         break;
                     default:
                         console.log('** event:', event)

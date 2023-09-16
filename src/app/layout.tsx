@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Theme appearance="dark" accentColor="sky" grayColor="olive">
+        <Theme appearance="dark" accentColor="lime" grayColor="olive">
           <QProvider>
             {children}
           </QProvider>
