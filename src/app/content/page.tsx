@@ -1,8 +1,6 @@
+import { ContentPanel } from "@/comps/content/content-panel"
 import { NextRequest } from "next/server"
 
 export default async function Page(req: NextRequest) {
-    return <div>
-        <h1>fdsfdsfds</h1>
-    </div>
-
+    return <ContentPanel />
 }

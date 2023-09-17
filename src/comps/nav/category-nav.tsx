@@ -16,8 +16,8 @@ const navItems = [
 
 const DisplayNavItem = ({ title, category }: NavItem) => {
     const [selected, setSelected] = useAtom(categoryAtom)
-    const cls = cn(["text-primary", "my-2", "py-2", "pr-4", "text-right",
-        selected === category ? "font-bold border-r-8 border-primary " : "font-normal cursor-pointer"
+    const cls = cn(["text-primary", "my-2", "py-2", "pr-4", "text-right", "border-r-8 ",
+        selected === category ? "font-normal border-primary " : "font-normal cursor-pointer border-transparent "
     ])
     const handler = () => {
         if (selected !== category) {

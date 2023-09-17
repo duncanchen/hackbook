@@ -40,6 +40,73 @@ export interface Database {
           }
         ]
       }
+      books: {
+        Row: {
+          bookId: string
+          created_at: string
+          title: string | null
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          bookId: string
+          created_at?: string
+          title?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          bookId?: string
+          created_at?: string
+          title?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      contents: {
+        Row: {
+          category: string | null
+          content: string | null
+          contentId: string
+          created_at: string | null
+          deleted: boolean | null
+          description: string | null
+          title: string
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          category?: string | null
+          content?: string | null
+          contentId: string
+          created_at?: string | null
+          deleted?: boolean | null
+          description?: string | null
+          title: string
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          category?: string | null
+          content?: string | null
+          contentId?: string
+          created_at?: string | null
+          deleted?: boolean | null
+          description?: string | null
+          title?: string
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "contents_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       countries: {
         Row: {
           continent: Database["public"]["Enums"]["continents"] | null
