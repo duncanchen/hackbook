@@ -32,10 +32,10 @@ export const AddContent = (props: AddContentProps) => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm<ContentType>();
     const onSubmit: SubmitHandler<ContentType> = async (data) => {
         const patch = { ...data, category, user_id: session?.user.id || "", contentId }
-        const inserted = await upsertContent(patch)
-        const { data: possible } = inserted
-        if (possible) {
-            const extra = possible as PartialContent[]
+        const response = await upsertContent(patch)
+        const { data: inserted } = response
+        if (inserted) {
+            const extra = inserted as PartialContent[]
             setContents((prev) => mergeContentToc(prev, extra[0]))
         }
     }

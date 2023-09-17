@@ -29,6 +29,7 @@ export const ContentPanel = () => {
         }
     }, {
         enabled: !!session && !!category,
+        refetchOnWindowFocus: true
     })
     if (isLoading) {
         return <div>loading...</div>
