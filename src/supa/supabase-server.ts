@@ -3,16 +3,17 @@ import { createServerComponentClient, } from '@supabase/auth-helpers-nextjs';
 
 import { Database, Session } from "./supabase"
 
-export const createClient = () =>
-    createServerComponentClient<Database>({
-        cookies
-    })
+const serverSupabase =  createServerComponentClient<Database>({
+    cookies
+})
+export const getServerClient = () => serverSupabase
 
-export const getServerSupabase = () => createClient()
+
+export const getInstance = () => serverSupabase
 
 
 export const fetchServerSession = async () => {
-    const supabase = createClient()
+    const supabase = getServerClient()
     const {
         data: { session },
     } = await supabase.auth.getSession()

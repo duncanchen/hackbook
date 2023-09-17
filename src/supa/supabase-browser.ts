@@ -1,6 +1,5 @@
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Database } from "./supabase";
-import Cookie from "js-cookie";
 
 export const supabase = createClientComponentClient<Database>();
 
@@ -17,10 +16,10 @@ export function supabaseProjectId() {
     return extractFirstPartOfDomain(process.env["NEXT_PUBLIC_SUPABASE_URL"] || "");
 }
 
-export function supabaseCookie() {
-    return `sb-${supabaseProjectId()}-auth-token`;
-}
+// export function supabaseCookie() {
+//     return `sb-${supabaseProjectId()}-auth-token`;
+// }
 
-export const signOffClient = () => {
-    Cookie.remove(supabaseCookie())
-}
+// export const signOffClient = () => {
+//     Cookie.remove(supabaseCookie())
+// }

@@ -1,5 +1,4 @@
-import { getServerSupabase, fetchServerSession } from "@/supa/supabase-server"
-import { NextApiRequest } from "next"
+import { getInstance, fetchServerSession } from "@/supa/supabase-server"
 import { NextRequest } from "next/server"
 
 interface BookPageRequest {
@@ -8,23 +7,21 @@ interface BookPageRequest {
     }
 }
 
-const provisionMy = async (userId: string) => {
-    const supabase = getServerSupabase()
-    const resp = await supabase.from('books').upsert({
-        bookId: 'my-' + userId,
-        updated_at: new Date(),
-        user_id: userId,
-    })
-    console.log(resp)
-}
+// const provisionMy = async (userId: string) => {
+//     const supabase = getServerSupabase()
+//     const { data: resp, error } = await supabase
+//         .from('books')
+//         .upsert({ user_id: userId, title: 'My Book' })
+//     console.log(resp)
+// }
 
-export default async function Page(req: NextRequest) {
-    const { params } = req as any as BookPageRequest
+export default async function Page() {
+    // const { params } = req as any as BookPageRequest
     const session = await fetchServerSession()
-    await provisionMy(session.user.id)
+    // await provisionMy(session.user.id)
 
     return <div>
-        <h1>{params.book}</h1>
+        Hello
 
     </div>
 
