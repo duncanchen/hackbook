@@ -18,6 +18,7 @@ export const ContentPanel = () => {
     const { data: contents, isLoading } = useQuery(['content', category], async () => {
         const { data, error } = await supabase.from('contents').select('contentId, title, description, updated_at')
             .eq('category', category).eq('user_id', session?.user?.id || "")
+            .order('updated_at', { ascending: false })
         console.log('fetching....', data)
         if (data) {
             setContents(data as PartialContent[])
