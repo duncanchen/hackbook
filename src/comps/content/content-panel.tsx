@@ -4,9 +4,8 @@ import { useAtom } from "jotai";
 import { categoryAtom } from "../nav";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/supa/supabase-browser";
-import { useSession } from "@/biz/use-session";
+import { useSessionStore } from "@/biz/";
 import { Heading } from "@radix-ui/themes";
-import { AddContent } from "./add-content";
 import { PartialContent } from "./context-type";
 import { ContentTable } from "./content-table";
 import { contentToc, focusContent } from "./content-toc-atom";
@@ -15,12 +14,12 @@ export const ContentPanel = () => {
 	const [focused, setFocused] = useAtom(focusContent)
 	const [category] = useAtom(categoryAtom)
 	const [_, setContents] = useAtom(contentToc)
-	const {session,} = useSession()
-	console.log('** what is this -- session', session)
-	const {data: contents, isLoading} = useQuery(['content', category], async () => {
-		const {data, error} = await supabase.from('contents').select('contentId, title, description, updated_at')
+	const { session, } = useSessionStore()
+	console.log('** what is this -- session', session, "")
+	const { data: contents, isLoading } = useQuery(['content', category], async () => {
+		const { data, error } = await supabase.from('contents').select('contentId, title, description, updated_at')
 			.eq('category', category).eq('user_id', session?.user?.id || "")
-			.order('updated_at', {ascending: false})
+			.order('updated_at', { ascending: false })
 		console.log(data, error)
 		if (data) {
 			setFocused(null)
@@ -35,7 +34,7 @@ export const ContentPanel = () => {
 		refetchOnReconnect: true,
 	})
 	if (!session) {
-		return  <div className="text-[3rem] pt-8 font-extrabold text-amber-600">No session, why?</div>
+		return <div className="text-[3rem] pt-8 font-extrabold text-amber-600">No session, why?</div>
 	}
 	if (isLoading) {
 		return <div>loading...</div>
@@ -43,7 +42,6 @@ export const ContentPanel = () => {
 	return <div>
 		<div className="hidden">{session?.user.id}</div>
 		<Heading>{category}</Heading>
-		<ContentTable/>
-		<AddContent category={category}/>
+		<ContentTable />
 	</div>
 }

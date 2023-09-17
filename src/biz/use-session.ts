@@ -5,7 +5,7 @@ import { supabase } from "@/supa/supabase-browser";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 
-export const useSession = () => {
+export const useSessionX = () => {
     const [session, setSession] = useState<Session | null>(null)
     const [signedOut, setSignedOut] = useState<boolean>(false)
 

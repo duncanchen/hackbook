@@ -12,7 +12,7 @@ export const ContentTable = () => {
 		setFocused(ctn)
 	}
 	const preNewContent = () => {
-		setFocused({contentId: uid()})
+		setFocused({ contentId: uid() })
 	}
 	const finalToc = (focused) ? toc.filter((ctn) => ctn.contentId === focused.contentId) : toc
 	return <>
@@ -41,7 +41,7 @@ export const ContentTable = () => {
 			</Table.Body>
 		</Table.Root>
 		{
-			(focused) ? <ContentEditor content={focused}/> : null
+			(focused) ? <ContentEditor content={focused} /> : null
 		}
 	</>
 
