@@ -9,7 +9,7 @@ import { useSessionStore } from "@/biz";
 
 export const LoginBtn = ({ hidden }: { hidden?: boolean }) => {
     const router = useRouter()
-    const {setSession} = useSessionStore()
+    const { setSession } = useSessionStore()
     const { setBookId } = useBookStore()
     useEffect(() => {
         // This function will be triggered whenever there's an authentication change
@@ -46,8 +46,14 @@ export const LoginBtn = ({ hidden }: { hidden?: boolean }) => {
     </div>
 
     const handler = async () => {
+        const origin = window.location.origin
         const { error } = await supabase.auth.signInWithOAuth(
-            { provider: 'github' })
+            {
+                provider: 'github',
+                options: {
+                    redirectTo: origin
+                }
+            },)
         if (error) console.log('Error: ', error)
     }
     return <Button onClick={() => handler()}> Github</Button>
