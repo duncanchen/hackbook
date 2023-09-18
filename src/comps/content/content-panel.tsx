@@ -15,9 +15,9 @@ export const ContentPanel = () => {
 	const [category] = useAtom(categoryAtom)
 	const [_, setContents] = useAtom(contentToc)
 	const { session, } = useSessionStore()
-	console.log('** what is this -- session', session, "")
+	console.log('** what is this -- session', session, "jj")
 	const { data: contents, isLoading } = useQuery(['content', category], async () => {
-		const { data, error } = await supabase.from('contents').select('contentId, title, description, updated_at')
+		const { data, error } = await supabase.from('contents').select("*")
 			.eq('category', category).eq('user_id', session?.user?.id || "")
 			.order('updated_at', { ascending: false })
 		console.log(data, error)

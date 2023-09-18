@@ -41,7 +41,7 @@ export const ContentTable = () => {
 			</Table.Body>
 		</Table.Root>
 		{
-			(focused) ? <ContentEditor content={focused} /> : null
+			(focused) ? <ContentEditor content={focused} key={"1"} /> : null
 		}
 	</>
 
