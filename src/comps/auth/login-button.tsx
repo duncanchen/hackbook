@@ -51,7 +51,7 @@ export const LoginBtn = ({ hidden }: { hidden?: boolean }) => {
             {
                 provider: 'github',
                 options: {
-                    redirectTo: origin
+                    redirectTo: origin+'/content/yourmama'
                 }
             },)
         if (error) console.log('Error: ', error)
