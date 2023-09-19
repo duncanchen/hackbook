@@ -15,15 +15,15 @@ const extractAvatar = (session: Session | null) => {
 }
 
 
-const SafeAvatar = ({src, fallback}: { src: string | null, fallback: string }) => {
+const SafeAvatar = ({ src, fallback }: { src: string | null, fallback: string }) => {
 	if (src) {
-		return <Avatar src={src} fallback={fallback}/>
+		return <Avatar src={src} fallback={fallback} />
 	}
 	return <></>
 }
 
 export const MainNav = () => {
-	const {session, signedOut, signOut} = useSessionStore()
+	const { session, signedOut, signOut } = useSessionStore()
 	const router = useRouter()
 	if (signedOut) {
 		router.push('/')
@@ -33,11 +33,11 @@ export const MainNav = () => {
 		await supabase.auth.signOut()
 		signOut()
 	}
-	return <div className="flex flex-row justify-between p-2">
-		<Text color="lime" className="text-[2rem] font-extrabold">Books</Text>
+	return <div className="flex flex-row justify-between h-[5rem]">
+		<Text color="lime" className="text-[1rem] font-extrabold">Books</Text>
 		<div className="flex flex-row justify-end items-center gap-4 mx-4">
-			<SafeAvatar src={avatar} fallback="X"/>
-			<Button variant="ghost" onClick={handler}><ExitIcon/> </Button>
+			<SafeAvatar src={avatar} fallback="X" />
+			<Button variant="ghost" onClick={handler}><ExitIcon /> </Button>
 		</div>
 	</div>
 }

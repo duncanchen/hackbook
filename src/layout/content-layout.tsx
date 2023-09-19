@@ -7,7 +7,7 @@ export const ContentLayout = ({ children }: { children: React.ReactNode }) => {
 
     const header = <MainNav />
     const footer = <></>
-    return <WorkFrame header={header} footer={footer}>
+    return <WorkFrame header={<MainNav />} footer={footer}>
         <SideMain side={<CategoryNav />}>
             {children}
         </SideMain>
